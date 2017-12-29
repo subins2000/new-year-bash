@@ -2,7 +2,7 @@
 
 # Config
 name='subins2000'
-correction=2
+correction=0
 
 trap "tput reset; tput cnorm; exit" 2
 clear
@@ -24,7 +24,7 @@ while true; do
     tput setaf $color; tput bold
 
     tput cup 1 $column
-    echo '*****'
+    echo '*'
 
     color=$(((color+1)%8))
 
@@ -68,7 +68,7 @@ while true; do
     tput setaf $color; tput bold
 
     tput cup 14 $column
-    echo '*****'
+    echo '*'
 
     tput cup $((line+15)) $((middle_column-(${#name}/3)))
     echo $name
