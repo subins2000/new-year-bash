@@ -2,6 +2,7 @@
 
 # Config
 name='subins2000'
+correction=2
 
 trap "tput reset; tput cnorm; exit" 2
 clear
@@ -23,7 +24,7 @@ while true; do
     tput setaf $color; tput bold
 
     tput cup 1 $column
-    echo '******'
+    echo '*****'
 
     color=$(((color+1)%8))
 
@@ -54,13 +55,20 @@ while true; do
         sleep 0.01
     done
 
-    tput cup $((line+4))
-    toilet '    '$new_year --gay
+    spaceCount=$((middle_column/10 + correction))
+    spaces=""
+    for (( c=1; c<=$spaceCount; c++ ))
+    do
+        spaces+=" "
+    done
+
+    tput cup $((line+4)) 1
+    toilet "${spaces}$new_year" --gay -t
 
     tput setaf $color; tput bold
 
     tput cup 14 $column
-    echo '******'
+    echo '*****'
 
     tput cup $((line+15)) $((middle_column-(${#name}/3)))
     echo $name
