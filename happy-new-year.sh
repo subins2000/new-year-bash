@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Config
-name='subins2000'
+name='Arnab :)'
 correction=0
 
 trap "tput reset; tput cnorm; exit" 2
